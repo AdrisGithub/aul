@@ -3,6 +3,7 @@ use std::fmt::{Display, Formatter};
 const ENV_KEY: &str = "SAFE_LOGGING";
 const ENV_VALUE: &str = "true";
 const SAFE_PRINT: &str = "[REDACTED]";
+
 /// ### Used to censor specific information in your logs. <br>
 /// Can be activated and deactivated (at any point at runtime!) by setting the environment variable [`SAFE_LOGGING`] to [`true`]
 ///
@@ -37,7 +38,6 @@ impl<T> Sens<T> {
         std::env::var(ENV_KEY).is_ok_and(|t| { t.eq(ENV_VALUE) })
     }
 }
-
 
 
 #[cfg(test)]
