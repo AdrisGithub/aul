@@ -3,29 +3,37 @@ use std::str::FromStr;
 
 use crate::errors::ParseLogLevelError;
 
-static NAMES: [&str; 5] = ["TRACE", "DEBUG", "WARN", "INFO", "ERROR"];
+static NAMES: [&str; 5] = ["TRACE", "DEBUG", "INFO", "WARN", "ERROR"];
 
-/// Enum used for specifying the Logging Level
+/// ### Used for specifying the Logging Level
 ///
+/// Example:
+/// ```
+/// use aul::log;
+/// use aul::level::Level;
+///
+/// log!(Level::INFO,"Hello")
+/// // [INFO]: Hello
+/// ```
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Debug, Hash)]
 pub enum Level {
-    /// Designated for low priority, verbose information
+    /// ### Designated for low priority, verbose information
     ///
     /// For Example: Tracing method calls
     TRACE,
-    /// Designated for lower priority information
+    /// ### Designated for lower priority information
     ///
     /// For Example: Value of a specific variable
     DEBUG,
-    /// Designated for useful information
+    /// ### Designated for useful information
     ///
     /// For Example: User connected with your server
     INFO,
-    /// Designated for "hazardous" information
+    /// ### Designated for "hazardous" information
     ///
     /// For Example: Server didn't find setup file and use defaults
     WARN,
-    /// Designated for very serious errors
+    /// ### Designated for very serious errors
     ///
     /// For Example: Subprocess exited with abnormal exit code
     ERROR,
