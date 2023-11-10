@@ -8,7 +8,7 @@ pub mod level;
 pub mod sensitive;
 pub mod macros;
 
-
+#[allow(dead_code)]
 fn log(args: Arguments, level: Level) {
     println!("[{}]: {}", level, args)
 }
