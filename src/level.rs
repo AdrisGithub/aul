@@ -1,3 +1,4 @@
+//! Module for different logging [Level]s
 use std::fmt::{Display, Formatter};
 use std::str::FromStr;
 

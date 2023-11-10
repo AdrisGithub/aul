@@ -1,3 +1,4 @@
+//! Module for Sensitive wrapping with the [Sens] struct
 use std::fmt::{Display, Formatter};
 
 const ENV_KEY: &str = "SAFE_LOGGING";

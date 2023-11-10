@@ -1,3 +1,4 @@
+//! Module for all the Macros
 #[macro_export]
 macro_rules! log {
     ($lvl:expr, $($arg:tt)+) => {
