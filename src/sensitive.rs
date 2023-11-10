@@ -4,7 +4,7 @@ const ENV_KEY: &str = "SAFE_LOGGING";
 const ENV_VALUE: &str = "true";
 const SAFE_PRINT: &str = "[REDACTED]";
 
-pub struct Sens<T>(T);
+pub struct Sens<T>(pub T);
 
 impl<T> Display for Sens<T> where T: Display {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
