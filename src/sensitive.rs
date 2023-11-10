@@ -15,7 +15,7 @@ const SAFE_PRINT: &str = "[REDACTED]";
 ///     use aul::sensitive::Sens;
 ///
 ///     println!("{}",Sens("Hello"));  // Hello
-///     //change env Variable to true
+///     //change env variable "SAFE_LOGGING" to true
 ///     println!("{}",Sens("Hello")) // "[REDACTED]"
 /// ```
 /// ### Warning:
