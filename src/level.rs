@@ -35,11 +35,11 @@ mod tests{
         assert_eq!(Level::DEBUG.to_string(),"DEBUG")
     }
     #[test]
-    fn test_to_string_doesnt_equal_smth_else(){
+    fn test_to_string_doesnt_equal_something_else(){
         assert_ne!(Level::WARN.to_string(),"DEBUG")
     }
     #[test]
-    fn test_get_name_doesnt_equal_smth_else(){
+    fn test_get_name_doesnt_equal_something_else(){
         assert_ne!(Level::DEBUG.to_string(),"INFO")
     }
 
