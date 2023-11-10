@@ -1,8 +1,8 @@
 use std::fmt::{Display, Formatter};
 
-const ENV_KEY: &'static str = "SAFE_LOGGING";
-const ENV_VALUE: &'static str = "true";
-const SAFE_PRINT: &'static str = "[REDACTED]";
+const ENV_KEY: &str = "SAFE_LOGGING";
+const ENV_VALUE: &str = "true";
+const SAFE_PRINT: &str = "[REDACTED]";
 
 pub struct Sens<T>(T);
 
