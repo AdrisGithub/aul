@@ -4,6 +4,12 @@ macro_rules! log {
         $crate::log(format_args!($($arg)+),$lvl)
     };
 }
+#[macro_export]
+macro_rules! log_sensitive {
+    ($lvl:expr, $($arg:tt)+) => {
+        $crate::log_sensitive(format_args!($($arg)+),$lvl)
+    };
+}
 
 #[macro_export]
 macro_rules! log_info {
