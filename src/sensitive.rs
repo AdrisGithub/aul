@@ -3,7 +3,22 @@ use std::fmt::{Display, Formatter};
 const ENV_KEY: &str = "SAFE_LOGGING";
 const ENV_VALUE: &str = "true";
 const SAFE_PRINT: &str = "[REDACTED]";
-
+/// ### Used to censor specific information in your logs. <br>
+/// Can be activated and deactivated (at any point at runtime!) by setting the environment variable [`SAFE_LOGGING`] to [`true`]
+///
+/// When activated it will only print [`REDACTED`] <br>
+/// Example:
+/// ```
+///     use aul::sensitive::Sens;
+///
+///     println!("{}",Sens("Hello"));  // Hello
+///     //change env Variable to true
+///     println!("{}",Sens("Hello")) // "[REDACTED]"
+/// ```
+///
+/// [`SAFE_LOGGING`]: ENV_KEY
+/// [`true`]: ENV_VALUE
+/// [`REDACTED`]: SAFE_PRINT
 pub struct Sens<T>(pub T);
 
 impl<T> Display for Sens<T> where T: Display {
