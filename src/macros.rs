@@ -1,4 +1,3 @@
-use crate::level::Level;
 #[macro_export]
 macro_rules! log {
     ($lvl:expr, $($arg:tt)+) => {
@@ -41,9 +40,3 @@ macro_rules! log_warn {
     };
 }
 
-#[macro_export]
-macro_rules! log_error {
-    ($($arg:tt)+) => {
-        log!(Level::ERROR,$($arg)+)
-    };
-}
