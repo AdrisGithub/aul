@@ -5,9 +5,10 @@ const ENV_VALUE: &str = "true";
 const SAFE_PRINT: &str = "[REDACTED]";
 
 /// ### Used to censor specific information in your logs. <br>
-/// Can be activated and deactivated (at any point at runtime!) by setting the environment variable [`SAFE_LOGGING`] to [`true`]
+/// Can be activated and deactivated (at any point at runtime!) by setting the environment variable `SAFE_LOGGING` to `true`
 ///
-/// When activated it will only print [`REDACTED`] <br>
+/// When activated it will only print `[REDACTED]` <br>
+///
 /// Example:
 /// ```
 ///     use aul::sensitive::Sens;
@@ -16,6 +17,8 @@ const SAFE_PRINT: &str = "[REDACTED]";
 ///     //change env Variable to true
 ///     println!("{}",Sens("Hello")) // "[REDACTED]"
 /// ```
+/// ### Warning:
+/// It will look for the env key every call which has a runtime cost
 ///
 /// [`SAFE_LOGGING`]: ENV_KEY
 /// [`true`]: ENV_VALUE
