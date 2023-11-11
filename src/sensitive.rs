@@ -1,4 +1,5 @@
 //! Module for Sensitive wrapping with the [Sens] struct
+use colored::Colorize;
 use std::fmt::{Display, Formatter};
 
 const ENV_KEY: &str = "SAFE_LOGGING";
@@ -29,7 +30,7 @@ pub struct Sens<T>(pub T);
 impl<T> Display for Sens<T> where T: Display {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         if self.is_safe() {
-            SAFE_PRINT.fmt(f)
+            SAFE_PRINT.black().fmt(f)
         } else {
             self.0.fmt(f)
         }

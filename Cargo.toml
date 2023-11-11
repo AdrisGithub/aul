@@ -13,4 +13,4 @@ documentation = "https://docs.rs/aul"
 colored = "2.0.4"
 
 [features]
-color = []
+no-color = ["colored/no-color"]

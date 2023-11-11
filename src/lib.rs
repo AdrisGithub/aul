@@ -26,7 +26,7 @@ extern crate core;
 
 use std::fmt::Arguments;
 
-use colored::Colorize;
+use colored::{ColoredString, Colorize};
 
 use crate::level::Level;
 use crate::sensitive::Sens;
@@ -46,20 +46,14 @@ pub fn log_sensitive(args: Arguments, level: Level) {
     println!("[{}]: {}", paint_level(level), Sens(args))
 }
 
-#[cfg(not(feature = "color"))]
-fn paint_level(level: Level) -> String {
-    level.to_string()
-}
-
-#[cfg(feature = "color")]
-pub fn paint_level(level: Level) -> String {
+pub fn paint_level(level: Level) -> ColoredString {
     match level {
         Level::TRACE => level.to_string().blue(),
-        Level::DEBUG => level.to_string().blue(),
-        Level::INFO => level.to_string().blue(),
-        Level::WARN => level.to_string().blue(),
-        Level::ERROR => level.to_string().blue(),
-    }.to_string()
+        Level::DEBUG => level.to_string().white(),
+        Level::INFO => level.to_string().green(),
+        Level::WARN => level.to_string().bright_red(),
+        Level::ERROR => level.to_string().red(),
+    }.bold()
 }
 
 #[cfg(test)]
@@ -76,7 +70,11 @@ mod tests {
         log_sensitive!(Level::INFO,"{}","Hello");
         std::env::set_var("SAFE_LOGGING", "true");
         log_sensitive!(Level::INFO,"{}","Hello");
+        log!(Level::INFO,"{} {}",Sens("Hello"),"Hello");
+        log!(Level::TRACE,"{} {}",Sens("Hello"),"Hello");
+        log!(Level::DEBUG,"{} {}",Sens("Hello"),"Hello");
         log!(Level::WARN,"{} {}",Sens("Hello"),"Hello");
+        log!(Level::ERROR,"{} {}",Sens("Hello"),"Hello");
         log_info!("HEllo");
         print!("{}", "Hello".blue())
     }
