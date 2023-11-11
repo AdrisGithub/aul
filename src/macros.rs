@@ -7,6 +7,7 @@
 /// ```
 ///  use aul::level::Level;
 ///  use aul::log;
+///
 ///  log!(Level::INFO,"This is an information");
 ///  // [INFO]: This is an information
 ///  let num = 1;
@@ -28,6 +29,7 @@ macro_rules! log {
 /// ```
 ///  use aul::level::Level;
 ///  use aul::{log, log_sensitive};
+///
 ///  log_sensitive!(Level::INFO,"This is a sensitive information");
 ///  // [INFO]: This is an information
 ///  // change env variable "SAFE_LOGGING" to true
@@ -49,7 +51,9 @@ macro_rules! log_sensitive {
 /// # Example
 ///
 /// ```
-///  use aul::log_info;
+/// use aul::level::Level;
+/// use aul::{log,log_info};
+///
 ///  log_info!("This is an information");
 ///  // [INFO]: This is an information
 /// ```
@@ -66,7 +70,9 @@ macro_rules! log_info {
 /// # Example
 ///
 /// ```
-///  use aul::log_error;
+///  use aul::level::Level;
+///  use aul::{log,log_error};
+///
 ///  log_error!("This is an error");
 ///  // [ERROR]: This is an error
 /// ```
@@ -83,7 +89,9 @@ macro_rules! log_error {
 /// # Example
 ///
 /// ```
-///  use aul::log_trace;
+///  use aul::level::Level;
+///  use aul::{log,log_trace};
+///
 ///  log_trace!("calling method add");
 ///  // [TRACE]: calling method add
 /// ```
@@ -100,7 +108,9 @@ macro_rules! log_trace {
 /// # Example
 ///
 /// ```
-///  use aul::log_debug;
+///  use aul::level::Level;
+///  use aul::{log,log_debug};
+///
 ///  log_debug!("debugging info");
 ///  // [DEBUG]: debugging info
 /// ```
@@ -117,7 +127,8 @@ macro_rules! log_debug {
 /// # Example
 ///
 /// ```
-///  use aul::log_warn;
+///  use aul::level::Level;
+///  use aul::{log,log_warn};
 ///  log_warn!("WARNING");
 ///  // [WARN]: WARNING
 /// ```
