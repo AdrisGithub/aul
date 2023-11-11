@@ -11,7 +11,7 @@ Another logging library that can be used for logging to stdout
 
 ## Usage:
 
-Import it into your Cargo.toml 
+Import the library into your Cargo.toml 
 
 ```toml
 [dependencies]
@@ -40,5 +40,5 @@ fn start_server(port: u16){
 
 ## FAQ
 
-Q: I wrapped my data inside of the Sens struct but it still shows the values? <br>
+Q: I wrapped my data inside of the `Sens` struct but it still shows the values? <br>
 A: You need to set the env variable `SAFE_LOGGING` to `true` at any point in runtime
