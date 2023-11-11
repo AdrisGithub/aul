@@ -2,7 +2,7 @@
 
 Another logging library that can be used for logging to stdout
 
-[![Latest version](https://img.shields.io/badge/crates.io-1.1.2-red)](https://crates.io/crates/aul)
+[![Latest version](https://img.shields.io/badge/crates.io-1.1.3-red)](https://crates.io/crates/aul)
 [![Documentation](https://docs.rs/log/badge.svg)](https://docs.rs/aul)
 
 ## Documentation:
@@ -37,7 +37,6 @@ fn start_server(port: u16){
 }
 
 ```
-
 ## FAQ
 
 Q: I wrapped my data inside the `Sens` struct, but it still shows the values? <br>
