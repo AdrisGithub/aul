@@ -1,6 +1,7 @@
 //! Module for Sensitive wrapping with the [Sens] struct
-use colored::Colorize;
 use std::fmt::{Display, Formatter};
+
+use colored::Colorize;
 
 const ENV_KEY: &str = "SAFE_LOGGING";
 const ENV_VALUE: &str = "true";
@@ -48,6 +49,7 @@ impl<T> Sens<T> {
 #[cfg(test)]
 mod tests {
     use colored::Colorize;
+
     use crate::sensitive::{ENV_KEY, ENV_VALUE, SAFE_PRINT, Sens};
 
     #[test]
