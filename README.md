@@ -2,7 +2,7 @@
 
 Another logging library that can be used for logging to stdout
 
-[![Latest version](https://img.shields.io/badge/crates.io-1.1.4-red)](https://crates.io/crates/aul)
+[![Latest version](https://img.shields.io/badge/crates.io-1.1.5-red)](https://crates.io/crates/aul)
 [![Documentation](https://docs.rs/log/badge.svg)](https://docs.rs/aul)
 
 ## Documentation:
@@ -15,14 +15,14 @@ Import the library into your Cargo.toml
 
 ```toml
 [dependencies]
-aul = "1.1.4"
+aul = "1.1.5"
 ```
 
 You can also disable the coloring feature
 
 ```toml
 [dependencies]
-aul = { version = "1.1.4", features = ["no-color"] }
+aul = { version = "1.1.5", features = ["no-color"] }
 ```
 
 Then use the specific macro or censor specific data
@@ -33,7 +33,7 @@ use aul::{log, log_warn};
 
 fn start_server(port: u16) {
     log!(Level::TRACE,"Called Method 'start_server' with port: {} ", port);
-    log_warn!("Important sensitive data: {}", Sens(port))
+    log_warn!("Important sensitive data: {}", Sens(&port))
 }
 
 ```
