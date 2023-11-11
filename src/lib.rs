@@ -26,6 +26,8 @@ extern crate core;
 
 use std::fmt::Arguments;
 
+use colored::Colorize;
+
 use crate::level::Level;
 use crate::sensitive::Sens;
 
@@ -36,18 +38,37 @@ pub mod errors;
 
 /// ### Warning used by the macro to log. Not intended for personal usage
 pub fn log(args: Arguments, level: Level) {
-    println!("[{}]: {}", level, args)
+    println!("[{}]: {}", paint_level(level), args)
 }
+
 /// ### Warning used by the macro to log. Not intended for personal usage
 pub fn log_sensitive(args: Arguments, level: Level) {
-    println!("[{}]: {}", level, Sens(args))
+    println!("[{}]: {}", paint_level(level), Sens(args))
+}
+
+#[cfg(not(feature = "color"))]
+fn paint_level(level: Level) -> String {
+    level.to_string()
+}
+
+#[cfg(feature = "color")]
+pub fn paint_level(level: Level) -> String {
+    match level {
+        Level::TRACE => level.to_string().blue(),
+        Level::DEBUG => level.to_string().blue(),
+        Level::INFO => level.to_string().blue(),
+        Level::WARN => level.to_string().blue(),
+        Level::ERROR => level.to_string().blue(),
+    }.to_string()
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::{log, log_sensitive};
+    use colored::Colorize;
+
+    use crate::{log, log_info, log_sensitive};
     use crate::level::Level;
-    use crate::sensitive::Sens;
+    use crate::Sens;
 
     #[test]
     fn test_log_macro() {
@@ -55,7 +76,9 @@ mod tests {
         log_sensitive!(Level::INFO,"{}","Hello");
         std::env::set_var("SAFE_LOGGING", "true");
         log_sensitive!(Level::INFO,"{}","Hello");
-        log!(Level::WARN,"{} {}",Sens("Hello"),"Hello")
+        log!(Level::WARN,"{} {}",Sens("Hello"),"Hello");
+        log_info!("HEllo");
+        print!("{}", "Hello".blue())
     }
 }
 
