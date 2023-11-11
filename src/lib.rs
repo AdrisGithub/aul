@@ -43,7 +43,7 @@ pub fn log(args: Arguments, level: Level) {
 
 /// ### Warning used by the macro to log. Not intended for personal usage
 pub fn log_sensitive(args: Arguments, level: Level) {
-    println!("[{}]: {}", paint_level(level), Sens(args))
+    println!("[{}]: {}", paint_level(level), Sens(&args))
 }
 
 pub fn paint_level(level: Level) -> ColoredString {
@@ -70,11 +70,11 @@ mod tests {
         log_sensitive!(Level::INFO,"{}","Hello");
         std::env::set_var("SAFE_LOGGING", "true");
         log_sensitive!(Level::INFO,"{}","Hello");
-        log!(Level::INFO,"{} {}",Sens("Hello"),"Hello");
-        log!(Level::TRACE,"{} {}",Sens("Hello"),"Hello");
-        log!(Level::DEBUG,"{} {}",Sens("Hello"),"Hello");
-        log!(Level::WARN,"{} {}",Sens("Hello"),"Hello");
-        log!(Level::ERROR,"{} {}",Sens("Hello"),"Hello");
+        log!(Level::INFO,"{} {}",Sens(&"Hello"),&"Hello");
+        log!(Level::TRACE,"{} {}",Sens(&"Hello"),"Hello");
+        log!(Level::DEBUG,"{} {}",Sens(&"Hello"),"Hello");
+        log!(Level::WARN,"{} {}",Sens(&"Hello"),"Hello");
+        log!(Level::ERROR,"{} {}",Sens(&"Hello"),"Hello");
         log_info!("HEllo");
         print!("{}", "Hello".blue())
     }

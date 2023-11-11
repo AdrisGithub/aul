@@ -16,9 +16,9 @@ const SAFE_PRINT: &str = "[REDACTED]";
 /// ```
 ///     use aul::sensitive::Sens;
 ///
-///     println!("{}",Sens("Hello"));  // Hello
+///     println!("{}",Sens(&"Hello"));  // Hello
 ///     //change env variable "SAFE_LOGGING" to true
-///     println!("{}",Sens("Hello")) // "[REDACTED]"
+///     println!("{}",Sens(&"Hello")) // "[REDACTED]"
 /// ```
 /// ### Warning:
 /// It will look for the env key every call which has a runtime cost
@@ -26,9 +26,9 @@ const SAFE_PRINT: &str = "[REDACTED]";
 /// [`SAFE_LOGGING`]: ENV_KEY
 /// [`true`]: ENV_VALUE
 /// [`REDACTED`]: SAFE_PRINT
-pub struct Sens<T>(pub T);
+pub struct Sens<'a,T>(pub &'a T);
 
-impl<T> Display for Sens<T> where T: Display {
+impl<T> Display for Sens<'_, T> where T: Display {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         if self.is_safe() {
             SAFE_PRINT.black().fmt(f)
@@ -39,7 +39,7 @@ impl<T> Display for Sens<T> where T: Display {
 }
 
 
-impl<T> Sens<T> {
+impl<T> Sens<'_, T> {
     fn is_safe(&self) -> bool {
         std::env::var(ENV_KEY).is_ok_and(|t| { t.eq(ENV_VALUE) })
     }
@@ -55,12 +55,12 @@ mod tests {
     #[test]
     fn test_sens_mode() {
         std::env::set_var(ENV_KEY, "");
-        assert_eq!(Sens(1).to_string(), "1");
+        assert_eq!(Sens(&1).to_string(), "1");
     }
 
     #[test]
     fn test_sens_mode_redacted() {
         std::env::set_var(ENV_KEY, ENV_VALUE);
-        assert_eq!(Sens(1).to_string(), SAFE_PRINT.black().to_string());
+        assert_eq!(Sens(&1).to_string(), SAFE_PRINT.black().to_string());
     }
 }
