@@ -47,6 +47,7 @@ impl<T> Sens<T> {
 
 #[cfg(test)]
 mod tests {
+    use colored::Colorize;
     use crate::sensitive::{ENV_KEY, ENV_VALUE, SAFE_PRINT, Sens};
 
     #[test]
@@ -58,6 +59,6 @@ mod tests {
     #[test]
     fn test_sens_mode_redacted() {
         std::env::set_var(ENV_KEY, ENV_VALUE);
-        assert_eq!(Sens(1).to_string(), SAFE_PRINT);
+        assert_eq!(Sens(1).to_string(), SAFE_PRINT.black().to_string());
     }
 }
