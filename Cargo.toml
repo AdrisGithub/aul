@@ -1,6 +1,6 @@
 [package]
 name = "aul"
-version = "1.0.1"
+version = "1.1.1"
 edition = "2021"
 authors = ["Adriiii"]
 description = "Another useless Logger"
