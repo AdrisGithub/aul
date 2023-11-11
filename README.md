@@ -38,3 +38,7 @@ fn start_server(port: u16){
 
 ```
 
+## FAQ
+
+Q: I wrapped my data inside of the Sens struct but it still shows the values? 
+A: YOu need to set the env variable `SAFE_LOGGING` to `true` at any point in runtime
