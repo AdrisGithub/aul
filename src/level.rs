@@ -63,11 +63,11 @@ impl TryFrom<usize> for Level {
 
     fn try_from(value: usize) -> Result<Self, Self::Error> {
         match value {
-            1 => Some(Level::TRACE),
-            2 => Some(Level::DEBUG),
-            3 => Some(Level::INFO),
-            4 => Some(Level::WARN),
-            5 => Some(Level::ERROR),
+            0 => Some(Level::TRACE),
+            1 => Some(Level::DEBUG),
+            2 => Some(Level::INFO),
+            3 => Some(Level::WARN),
+            4 => Some(Level::ERROR),
             _ => None,
         }.ok_or(ParseLogLevelError::new())
     }
