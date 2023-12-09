@@ -10,7 +10,7 @@ license = "GPL-2.0-or-later"
 documentation = "https://docs.rs/aul"
 categories = ["development-tools::debugging"]
 keywords = ["logging"]
-exclude = [".github/"]
+exclude = [".github/", "sonar-project.properties"]
 
 
 [dependencies]
