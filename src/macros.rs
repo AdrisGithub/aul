@@ -51,15 +51,15 @@ macro_rules! log_sensitive {
 /// # Example
 ///
 /// ```
-/// use aul::log_info;
+/// use aul::info;
 ///
-///  log_info!("This is an information");
+///  info!("This is an information");
 ///  // [INFO]: This is an information
 /// ```
 ///
 /// [`INFO`]: crate::Level::INFO
 #[macro_export]
-macro_rules! log_info {
+macro_rules! info {
     ($($arg:tt)+) => {
         use aul::log;
         use aul::level::Level;
@@ -71,15 +71,15 @@ macro_rules! log_info {
 /// # Example
 ///
 /// ```
-///  use aul::log_error;
+///  use aul::error;
 ///
-///  log_error!("This is an error");
+///  error!("This is an error");
 ///  // [ERROR]: This is an error
 /// ```
 ///
 /// [`ERROR`]: crate::Level::ERROR
 #[macro_export]
-macro_rules! log_error {
+macro_rules! error {
     ($($arg:tt)+) => {
         use aul::log;
         use aul::level::Level;
@@ -91,15 +91,15 @@ macro_rules! log_error {
 /// # Example
 ///
 /// ```
-///  use aul::log_trace;
+///  use aul::trace;
 ///
-///  log_trace!("calling method add");
+///  trace!("calling method add");
 ///  // [TRACE]: calling method add
 /// ```
 ///
 /// [`TRACE`]: crate::Level::TRACE
 #[macro_export]
-macro_rules! log_trace {
+macro_rules! trace {
     ($($arg:tt)+) => {
         use aul::log;
         use aul::level::Level;
@@ -111,15 +111,14 @@ macro_rules! log_trace {
 /// # Example
 ///
 /// ```
-///  use aul::log_debug;
-///
-///  log_debug!("debugging info");
+///  use aul::debug;///
+///  debug!("debugging info");
 ///  // [DEBUG]: debugging info
 /// ```
 ///
 /// [`DEBUG`]: crate::Level::DEBUG
 #[macro_export]
-macro_rules! log_debug {
+macro_rules! debug {
     ($($arg:tt)+) => {
         use aul::log;
         use aul::level::Level;
@@ -131,14 +130,15 @@ macro_rules! log_debug {
 /// # Example
 ///
 /// ```
-///  use aul::log_warn;
-///  log_warn!("WARNING");
+///  use aul::warn;///
+///  warn!("WARNING");
+///  log!(Level::INFO,"hello")
 ///  // [WARN]: WARNING
 /// ```
 ///
 /// [`WARN`]: crate::Level::WARN
 #[macro_export]
-macro_rules! log_warn {
+macro_rules! warn {
     ($($arg:tt)+) => {
         use aul::log;
         use aul::level::Level;

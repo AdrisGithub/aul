@@ -2,7 +2,7 @@
 
 Another logging library that can be used for logging to stdout
 
-[![Latest version](https://img.shields.io/badge/crates.io-1.2.1-red)](https://crates.io/crates/aul)
+[![Latest version](https://img.shields.io/badge/crates.io-1.3.0-red)](https://crates.io/crates/aul)
 [![Documentation](https://docs.rs/log/badge.svg)](https://docs.rs/aul)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=AdrisGithub_aul&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=AdrisGithub_aul)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AdrisGithub_aul&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=AdrisGithub_aul)
@@ -17,25 +17,24 @@ Import the library into your Cargo.toml
 
 ```toml
 [dependencies]
-aul = "1.2.1"
+aul = "1.3.0"
 ```
 
 You can also disable the coloring feature
 
 ```toml
 [dependencies]
-aul = { version = "1.2.1", features = ["no-color"] }
+aul = { version = "1.3.0", features = ["no-color"] }
 ```
 
 Then use the specific macro or censor specific data
 
 ```rust
-use aul::level::Level;
-use aul::{log, log_warn};
+use aul::warn;
 
 fn start_server(port: u16) {
     log!(Level::TRACE,"Called Method 'start_server' with port: {} ", port);
-    log_warn!("Important sensitive data: {}", Sens(&port))
+    warn!("Important sensitive data: {}", Sens(&port))
 }
 
 ```
