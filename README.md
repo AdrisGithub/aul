@@ -4,7 +4,9 @@ Another logging library that can be used for logging to stdout
 
 [![Latest version](https://img.shields.io/badge/crates.io-1.2.0-red)](https://crates.io/crates/aul)
 [![Documentation](https://docs.rs/log/badge.svg)](https://docs.rs/aul)
-
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=AdrisGithub_aul&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=AdrisGithub_aul)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AdrisGithub_aul&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=AdrisGithub_aul)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=AdrisGithub_aul&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=AdrisGithub_aul)
 ## Documentation:
 
 * [`aul`](https://docs.rs/aul)
