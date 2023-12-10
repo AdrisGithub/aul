@@ -59,9 +59,8 @@ pub fn paint_level(level: Level) -> ColoredString {
 #[cfg(test)]
 mod tests {
     use colored::Colorize;
-
-    use crate::level::Level;
     use crate::{info, log, log_sensitive, Sens};
+    use crate::Level;
 
     #[test]
     fn test_log_macro() {
