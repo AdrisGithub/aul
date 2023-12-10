@@ -60,9 +60,8 @@ pub fn paint_level(level: Level) -> ColoredString {
 mod tests {
     use colored::Colorize;
 
-    use crate::{log, log_info, log_sensitive};
     use crate::level::Level;
-    use crate::Sens;
+    use crate::{info, log, log_sensitive, Sens};
 
     #[test]
     fn test_log_macro() {
@@ -75,7 +74,7 @@ mod tests {
         log!(Level::DEBUG,"{} {}",Sens(&"Hello"),"Hello");
         log!(Level::WARN,"{} {}",Sens(&"Hello"),"Hello");
         log!(Level::ERROR,"{} {}",Sens(&"Hello"),"Hello");
-        log_info!("HEllo");
+        info!("HEllo");
         print!("{}", "Hello".blue())
     }
 }
