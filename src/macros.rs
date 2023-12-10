@@ -51,8 +51,7 @@ macro_rules! log_sensitive {
 /// # Example
 ///
 /// ```
-/// use aul::level::Level;
-/// use aul::{log,log_info};
+/// use aul::log_info;
 ///
 ///  log_info!("This is an information");
 ///  // [INFO]: This is an information
@@ -62,6 +61,8 @@ macro_rules! log_sensitive {
 #[macro_export]
 macro_rules! log_info {
     ($($arg:tt)+) => {
+        use aul::log;
+        use aul::level::Level;
         log!(Level::INFO,$($arg)+)
     };
 }
@@ -70,8 +71,7 @@ macro_rules! log_info {
 /// # Example
 ///
 /// ```
-///  use aul::level::Level;
-///  use aul::{log,log_error};
+///  use aul::log_error;
 ///
 ///  log_error!("This is an error");
 ///  // [ERROR]: This is an error
@@ -81,6 +81,8 @@ macro_rules! log_info {
 #[macro_export]
 macro_rules! log_error {
     ($($arg:tt)+) => {
+        use aul::log;
+        use aul::level::Level;
         log!(Level::ERROR,$($arg)+)
     };
 }
@@ -89,8 +91,7 @@ macro_rules! log_error {
 /// # Example
 ///
 /// ```
-///  use aul::level::Level;
-///  use aul::{log,log_trace};
+///  use aul::log_trace;
 ///
 ///  log_trace!("calling method add");
 ///  // [TRACE]: calling method add
@@ -100,6 +101,8 @@ macro_rules! log_error {
 #[macro_export]
 macro_rules! log_trace {
     ($($arg:tt)+) => {
+        use aul::log;
+        use aul::level::Level;
         log!(Level::TRACE,$($arg)+)
     };
 }
@@ -108,8 +111,7 @@ macro_rules! log_trace {
 /// # Example
 ///
 /// ```
-///  use aul::level::Level;
-///  use aul::{log,log_debug};
+///  use aul::log_debug;
 ///
 ///  log_debug!("debugging info");
 ///  // [DEBUG]: debugging info
@@ -119,6 +121,8 @@ macro_rules! log_trace {
 #[macro_export]
 macro_rules! log_debug {
     ($($arg:tt)+) => {
+        use aul::log;
+        use aul::level::Level;
         log!(Level::DEBUG,$($arg)+)
     };
 }
@@ -127,8 +131,7 @@ macro_rules! log_debug {
 /// # Example
 ///
 /// ```
-///  use aul::level::Level;
-///  use aul::{log,log_warn};
+///  use aul::log_warn;
 ///  log_warn!("WARNING");
 ///  // [WARN]: WARNING
 /// ```
@@ -137,6 +140,8 @@ macro_rules! log_debug {
 #[macro_export]
 macro_rules! log_warn {
     ($($arg:tt)+) => {
+        use aul::log;
+        use aul::level::Level;
         log!(Level::WARN,$($arg)+)
     };
 }
