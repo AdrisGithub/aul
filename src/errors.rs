@@ -2,7 +2,7 @@
 use std::error::Error;
 use std::fmt::{Display, Formatter};
 
-static ERROR_MESSAGE: &str = "failed to convert a string that doesn't match a log level";
+const ERROR_MESSAGE: &str = "failed to convert a string that doesn't match a log level";
 
 /// Error struct used and thrown when calling [`from_str`] or [`try_from`] on a String that doesn't contain a valid [`Level`]
 ///
@@ -10,13 +10,13 @@ static ERROR_MESSAGE: &str = "failed to convert a string that doesn't match a lo
 /// [`from_str`]: std::str::FromStr::from_str
 /// [`try_from`]: TryFrom::try_from
 #[derive(Debug)]
-pub struct ParseLogLevelError(());
+pub struct ParseLogLevelError;
 
 impl ParseLogLevelError {
     /// Constructs a new Instance of ParseLogLevelError
     ///
     pub const fn new() -> Self {
-        ParseLogLevelError(())
+        ParseLogLevelError
     }
 }
 
