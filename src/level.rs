@@ -16,7 +16,7 @@ static NAMES: [&str; 5] = ["TRACE", "DEBUG", "INFO", "WARN", "ERROR"];
 /// log!(Level::INFO,"Hello")
 /// // [INFO]: Hello
 /// ```
-#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Debug, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Debug, Hash,Default)]
 pub enum Level {
     /// ### Designated for low priority, verbose information
     ///
@@ -29,6 +29,7 @@ pub enum Level {
     /// ### Designated for useful information
     ///
     /// For Example: User connected with your server
+    #[default]
     INFO,
     /// ### Designated for "hazardous" information
     ///
