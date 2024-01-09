@@ -26,8 +26,6 @@ extern crate core;
 
 use std::fmt::Arguments;
 
-use colored::{ColoredString, Colorize};
-
 use crate::level::Level;
 use crate::sensitive::Sens;
 
@@ -45,19 +43,24 @@ pub fn log(args: Arguments, level: Level) {
 pub fn log_sensitive(args: Arguments, level: Level) {
     println!("[{}]: {}", paint_level(level), Sens(&args))
 }
-
-pub fn paint_level(level: Level) -> ColoredString {
+#[cfg(color)]
+pub fn paint_level(level: Level) -> String {
     match level {
         Level::TRACE => level.to_string().blue(),
         Level::DEBUG => level.to_string().white(),
         Level::INFO => level.to_string().green(),
         Level::WARN => level.to_string().bright_red(),
         Level::ERROR => level.to_string().red(),
-    }.bold()
+    }.bold().to_string()
 }
-
+#[cfg(not(color))]
+pub fn paint_level(level: Level) -> String {
+    level.to_string()
+}
 #[cfg(test)]
 mod tests {
+    
+    #[cfg(color)]
     use colored::Colorize;
     use crate::{info, log, log_sensitive, Sens};
     use crate::Level;

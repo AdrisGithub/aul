@@ -27,7 +27,7 @@ const SAFE_PRINT: &str = "[REDACTED]";
 /// [`true`]: ENV_VALUE
 /// [`REDACTED`]: SAFE_PRINT
 pub struct Sens<'a,T>(pub &'a T);
-
+#[cfg(color)]
 impl<T> Display for Sens<'_, T> where T: Display {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         if self.is_safe() {
@@ -38,6 +38,16 @@ impl<T> Display for Sens<'_, T> where T: Display {
     }
 }
 
+#[cfg(not(color))]
+impl<T> Display for Sens<'_, T> where T: Display {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        if self.is_safe() {
+            SAFE_PRINT.fmt(f)
+        } else {
+            self.0.fmt(f)
+        }
+    }
+}
 
 impl<T> Sens<'_, T> {
     fn is_safe(&self) -> bool {
