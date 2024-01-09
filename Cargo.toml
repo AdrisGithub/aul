@@ -14,7 +14,8 @@ exclude = [".github/", "sonar-project.properties"]
 
 
 [dependencies]
-colored = "2.1.0"
+colored = { version = "2.1.0", optional = true }
+
 
 [features]
-color = ["color"]
+color = ["dep:colored"]

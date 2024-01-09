@@ -1,8 +1,6 @@
 //! Module for Sensitive wrapping with the [Sens] struct
 use std::fmt::{Display, Formatter};
 
-use colored::Colorize;
-
 const ENV_KEY: &str = "SAFE_LOGGING";
 const ENV_VALUE: &str = "true";
 const SAFE_PRINT: &str = "[REDACTED]";
