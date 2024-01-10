@@ -59,9 +59,7 @@ pub fn paint_level(level: Level) -> String {
 }
 #[cfg(test)]
 mod tests {
-    
-    #[cfg(color)]
-    use colored::Colorize;
+
     use crate::{info, log, log_sensitive, Sens};
     use crate::Level;
 
@@ -77,7 +75,6 @@ mod tests {
         log!(Level::WARN,"{} {}",Sens(&"Hello"),"Hello");
         log!(Level::ERROR,"{} {}",Sens(&"Hello"),"Hello");
         info!("HEllo");
-        print!("{}", "Hello".blue())
     }
 }
 
